@@ -33,7 +33,7 @@ public class Roommates {
             return;
         }
 
-        for (var matching: allPossibleMatchings(participants)) {
+        for (final var matching: allPossibleMatchings(participants)) {
             if (verifyMatches(participants, matching, participantPreferences)) {
                 numOfStableMatches++;
             }
@@ -127,11 +127,11 @@ public class Roommates {
             final var array = new ArrayList<>(list.subList(1, i));
             array.addAll(list.subList(i + 1, list.size()));
 
-            var recurList = allPossibleMatchings(array);
+            final var recurList = allPossibleMatchings(array);
             if (recurList.size() == 0) {
                 returnList.add(outerMap);
             }
-            for (var rest : recurList) {
+            for (final var rest : recurList) {
                 final var innerMap = new HashMap<>(outerMap);
                 innerMap.putAll(rest);
                 returnList.add(innerMap);
@@ -151,7 +151,7 @@ public class Roommates {
         }
 
         // Go through all the pairings in the matching that was given.
-        for (var pair: matches.entrySet()) {
+        for (final var pair: matches.entrySet()) {
             final var currParticipant = pair.getKey();
             final var currPartPrefList = preferences.get(currParticipant);
             final var currPartBetterPicks = new ArrayList<>(
@@ -163,7 +163,7 @@ public class Roommates {
 
             // See if the receiver has a better person than what they have
             // that's willing to switch.
-            for (var potPartBetterPick: currPartBetterPicks) {
+            for (final var potPartBetterPick: currPartBetterPicks) {
                 final var potPartBetterPickPartner = matches
                     .get(potPartBetterPick);
                 final var potPartBetterPicksPrefs = preferences

@@ -156,10 +156,7 @@ public class Roommates {
             final var currPartPrefList = preferences.get(currParticipant);
             final var currPartBetterPicks = new ArrayList<>(
                 currPartPrefList.subList(
-                    0,
-                    currPartPrefList.indexOf(pair.getValue())
-                )
-            );
+                    0, currPartPrefList.indexOf(pair.getValue())));
 
             // See if the receiver has a better person than what they have
             // that's willing to switch.
